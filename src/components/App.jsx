@@ -15,10 +15,7 @@ state = {
     this.setState(prevState => ({
       contacts: [
         ...prevState.contacts,
-        {
-          id: nanoid(),
-          ...newContact,
-        },
+        {id: nanoid(), ...newContact},
       ],
     }));
   }
