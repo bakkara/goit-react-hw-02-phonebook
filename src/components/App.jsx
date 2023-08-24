@@ -12,6 +12,13 @@ state = {
   }
 
   addContact = newContact => {
+    const { name } = newContact;
+    const isExist = this.state.contacts.some(contact => contact.name === name);
+
+    if (isExist) {
+      alert(`${name} is already in contacts.`);
+      return;
+    }
     this.setState(prevState => ({
       contacts: [
         ...prevState.contacts,

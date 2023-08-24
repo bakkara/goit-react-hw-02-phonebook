@@ -1,11 +1,13 @@
+import { ContactWrapper } from "./Contact.styled"
+
 export const Contact = ({
     contact: { id, name, number },
     onDelete
 }) => {
     return (
-        <div>
+        <ContactWrapper>
             <p>{name}: {number}</p>
-            <button onClick={()=> onDelete(id)}></button>
-        </div>
+            <button onClick={()=> onDelete(id)}>Delete</button>
+        </ContactWrapper>
     )
 }

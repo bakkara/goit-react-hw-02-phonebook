@@ -7,7 +7,7 @@ import * as Yup from 'yup';
     .test(
       "name",
       "Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan",
-      value => /^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/.test(value)
+      value => /^[a-zA-Zа-яА-Я]+((['][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/.test(value)
     )
     .required('Required'),
     number: Yup.string()
@@ -30,7 +30,7 @@ export const ContactForm = ({onAdd}) => {
                     name: "",
                     number: "",
                 }}
-        onSubmit={(values, actions) => {
+        onSubmit={(values, actions) =>{
          onAdd(values);
         actions.resetForm();
             }}
