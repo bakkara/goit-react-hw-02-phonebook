@@ -1,8 +1,7 @@
 import { Formik, Field, Form, ErrorMessage} from "formik";
-
 import * as Yup from 'yup';
 
- const SignupSchema = Yup.object().shape({
+ const ContactSchema = Yup.object().shape({
     name: Yup.string()
     .test(
       "name",
@@ -24,25 +23,25 @@ import * as Yup from 'yup';
 
 export const ContactForm = ({onAdd}) => {
     return (
-   <Formik
-        initialValues={
+        <Formik
+            initialValues={
                 {
                     name: "",
                     number: "",
                 }}
-        onSubmit={(values, actions) =>{
-         onAdd(values);
-        actions.resetForm();
-            }}
-        validationSchema={SignupSchema}
-      >
-        <Form>
-          <Field name="name" type="text" />
-        <ErrorMessage name="name"/>
+            onSubmit={(values, actions) =>{
+                    onAdd(values);
+                    actions.resetForm();
+                }}
+            validationSchema={ContactSchema}
+        >
+            <Form>
+                <Field name="name" type="text" />
+                    <ErrorMessage name="name"/>
                 <Field name="number" type="tel" />
-                <ErrorMessage name="number"/>
-          <button type="submit">Add contact</button>
-        </Form>
-      </Formik >
-          )
+                    <ErrorMessage name="number"/>
+                <button type="submit">Add contact</button>
+            </Form>
+        </Formik >
+    )
 }

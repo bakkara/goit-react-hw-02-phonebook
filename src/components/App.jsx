@@ -1,14 +1,14 @@
 import { Component } from "react";
 import { ContactForm } from "./ContactForm/ContactForm";
 import { ContactList } from "./ContactList/ContactList";
-// import { Filter } from "./Filter/Filter";
+import { Filter } from "./Filter/Filter";
 import { Layout } from "./Layout";
 import { nanoid } from 'nanoid';
 
 export class App extends Component {
 state = {
   contacts: [],
-  /* filter: '' */
+  filter: ''
   }
 
   addContact = newContact => {
@@ -33,14 +33,26 @@ state = {
     }));
   };
 
+  searchContact = filterContact => {
+    this.setState({
+      filter: filterContact,
+    })
+  };
+
+
   render() {
+    const { contacts, filter } = this.state
+    const visibleContacts = contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    );
+
     return (
       <Layout>
         <h1>Phonebook</h1>
         <ContactForm onAdd={this.addContact} />
         <h2>Contacts</h2>
-      {/*   <Filter  /> */}
-        <ContactList filterContactsList={this.state.contacts} deleteContact={this.deleteContact} />
+        <Filter filter={filter} onSearchContact={this.searchContact} />
+        <ContactList filterContactsList={visibleContacts} deleteContact={this.deleteContact} />
      </Layout>
     ); 
     }
