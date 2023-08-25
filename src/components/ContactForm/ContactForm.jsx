@@ -1,6 +1,7 @@
 import { Formik } from "formik";
 import * as Yup from 'yup';
 import { Button, ErrorMsg, Label, StyledField, StyledForm } from "./ContactForm.styled";
+import PropTypes from 'prop-types';
 
  const ContactSchema = Yup.object().shape({
     name: Yup.string()
@@ -50,3 +51,7 @@ export const ContactForm = ({onAdd}) => {
         </Formik >
     )
 }
+
+ContactForm.propTypes = {
+  onAdd: PropTypes.func.isRequired,
+};

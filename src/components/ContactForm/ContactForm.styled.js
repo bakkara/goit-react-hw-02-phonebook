@@ -35,7 +35,7 @@ export const Button = styled.button`
     border: none;
     border: 1px solid #dcd8d8;
     cursor: pointer;
-    width: 100px;
+    width: 150px;
 
 &:hover {
     background-color: orange; 

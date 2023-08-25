@@ -1,4 +1,5 @@
 import { Input } from "./Filter.styled";
+import PropTypes from 'prop-types';
 
 export const Filter = ({filter, onSearchContact}) => {
     return (
@@ -15,3 +16,8 @@ export const Filter = ({filter, onSearchContact}) => {
     </div>
   );
 }
+
+Filter.propTypes = {
+  filter: PropTypes.string, 
+  onSearchContact: PropTypes.func.isRequired
+};
