@@ -1,3 +1,4 @@
+import { Button } from "components/ContactForm/ContactForm.styled"
 import { ContactWrapper } from "./Contact.styled"
 
 export const Contact = ({
@@ -7,7 +8,7 @@ export const Contact = ({
     return (
         <ContactWrapper>
             <p>{name}: {number}</p>
-            <button onClick={()=> onDelete(id)}>Delete</button>
+            <Button onClick={()=> onDelete(id)}>Delete</Button>
         </ContactWrapper>
     )
 }
